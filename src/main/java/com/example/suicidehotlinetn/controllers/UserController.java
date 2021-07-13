@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.example.suicidehotlinetn.db.UserRepository;
-import com.example.suicidehotlinetn.db.User;
+import com.example.suicidehotlinetn.repository.UserRepository;
+import com.example.suicidehotlinetn.models.User;
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
 public class UserController {
@@ -23,7 +23,7 @@ public class UserController {
         // @RequestParam means it is a parameter from the GET or POST request
 
         User n = new User();
-        n.setAlias(name);
+        n.setUsername(name);
         n.setEmail(email);
         userRepository.save(n);
         return "Saved";
